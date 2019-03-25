@@ -1,0 +1,39 @@
+<header >
+
+    <nav class="navbar navbar-light navbar-expand-lg navbar-dark bg-primary mb-4  ">
+       
+
+      <a class="navbar-brand" routerLink="/">POLICE</a>
+          
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/vendas">Comercial</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/compras">Compras</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/usuario">Admin</a>
+          </li>
+        </ul>
+      </div>
+       
+      <div *ngIf="(user$ | async) as user; else login">
+          <i class="fa fa-user-circle mr-1"></i>
+          <a class="mr-1">{{ user.login }}</a>
+          <a (click)="logout()"> ( Sign out )</a>
+      </div>
+
+      <ng-template #login>
+          <span class="navbar-text">
+              <a [routerLink]="['']">Sign in</a>
+          </span>
+      </ng-template> 
+
+
+
+    </nav>
+   
+</header>
+
